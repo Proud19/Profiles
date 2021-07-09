@@ -21,7 +21,11 @@ class ProfilesInteractor: ProfilesInteractorType {
                 let id = String(describing: user["id"])
                 let name = user["name"] as! String
                 let gender = user["gender"] as! String
-                self._usersArray.append(User(id: id, name: name, gender: gender))
+                let photo = user["photo"] as! String?
+                let about = user["about"] as! String?
+                let school = user["school"] as! String?
+                let hobbies = user["hobbies"] as! [String]?
+                self._usersArray.append(User(id: id, name: name, gender: gender, about: about, photo: photo, school: school, hobbies: hobbies))
             }
             print("Successfully initilized interactor...\nWe have \(self._usersArray.count) users in the system.")
         } catch {

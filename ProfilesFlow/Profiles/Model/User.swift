@@ -12,13 +12,18 @@ struct User {
     var name: String
     var gender: String
     var about: String?
+    var photo: String?
     var school: String?
-    var hobbies: String?
+    var hobbies: [String]?
     
-    init(id: String, name: String, gender: String) {
+    init(id: String, name: String, gender: String, about: String?, photo: String?, school: String?, hobbies: [String]?) {
         self.id = id
         self.name = name
         self.gender = gender
+        self.about = about
+        self.photo = photo
+        self.school = school
+        self.hobbies = hobbies
     }
     
     init?(json: [String: Any]) {
@@ -31,6 +36,10 @@ struct User {
         self.id = id
         self.name = name
         self.gender = gender
+        self.about = json["about"] as! String?
+        self.photo = json["photo"] as! String?
+        self.school = json["school"] as! String?
+        self.hobbies = json["hobbies"] as! [String]?
         
     }
 }
