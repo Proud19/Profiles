@@ -8,22 +8,57 @@
 import UIKit
 
 class ProfilesViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    fileprivate var presenter: ProfilesPresenter
+    var tableView = UITableView()
+    
+    
+    init(presenter: ProfilesPresenter) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    required init?(coder: NSCoder) {
+        return nil
     }
-    */
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        
+        // config tableview
+        self.tableView.register(HeaderViewCell.self, forCellReuseIdentifier: cellIdentifiers.HeaderViewCell.rawValue)
+        self.tableView.register(ImageViewCell.self, forCellReuseIdentifier: cellIdentifiers.ImageViewCell.rawValue)
+        self.tableView.register(TextCell.self, forCellReuseIdentifier: cellIdentifiers.TextCell.rawValue)
+        
+        // add subviews
+        self.tableView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(self.tableView)
+        
+        // create constraints
+        let views = ["table" : self.tableView]
+        let tableViewConstraintsH = NSLayoutConstraint.constraints(withVisualFormat: "H:|[table]|", options: [], metrics: nil, views: views)
+        let tableViewConstraintsV = NSLayoutConstraint.constraints(withVisualFormat: "V:|[table]|", options: [], metrics: nil, views: views)
+        
 
+        // add constraints
+        self.view.addConstraints(tableViewConstraintsH + tableViewConstraintsV)
+        
+        // hand off to presenter
+        self.presenter.handleViewDidLoad()
+        
+    }
+    
 }
+
+extension ProfilesViewController { // delegation
+    func set(dataSource: UITableViewDataSource) {
+        self.tableView.dataSource = dataSource
+    }
+    
+    func set(delegate: UITableViewDelegate) {
+        self.tableView.delegate = delegate
+    }
+}
+
+
+

@@ -8,12 +8,11 @@
 import UIKit
 
 class ProfilesWireframe {
-    func present() -> UINavigationController {
-        let _ = ProfilesInteractor()
-//        let presenter = CountryCodePresenter(interactor: interactor)
-//        let vc = CountryCodeViewController(presenter: presenter)
-        let nav = UINavigationController()
-//        presenter.vc = vc
-        return nav
+    func present() -> UIViewController {
+        let interactor = ProfilesInteractor()
+        let presenter = ProfilesPresenter(interactor: interactor)
+        let vc = ProfilesViewController(presenter: presenter)
+        presenter.vc = vc
+        return vc
     }
 }

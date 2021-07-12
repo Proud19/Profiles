@@ -7,4 +7,5 @@
 
 protocol ProfilesInteractorType: AnyObject {
     var usersArray: [User] { get }
+    var configOrder: [String] { get }
 }
