@@ -25,12 +25,13 @@ class ProfilesPresenter: NSObject {
 
 extension ProfilesPresenter: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.interactor.usersArray.count
+        self.interactor.configOrder.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifiers.HeaderViewCell.rawValue) as! HeaderViewCell
-        cell.configure(name: "Test name")
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifiers.ImageViewCell.rawValue) as! ImageViewCell
+        cell.configure(imageName: "2")
+        cell.selectionStyle = .none
         return cell
     }
 }
@@ -39,10 +40,20 @@ extension ProfilesPresenter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+
 }
 
-public enum cellIdentifiers: String {
+public enum ProfileProperties: String {
     case HeaderViewCell
     case ImageViewCell
     case TextCell
+}
+
+public enum Sections {
+    case name
+    case photo
+    case gender
+    case about
+    case school
+    case hobbies
 }

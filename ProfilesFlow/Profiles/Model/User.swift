@@ -40,6 +40,7 @@ struct User {
         self.photo = json["photo"] as! String?
         self.school = json["school"] as! String?
         self.hobbies = json["hobbies"] as! [String]?
-        
+    
     }
+    
 }

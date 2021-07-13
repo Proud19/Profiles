@@ -26,6 +26,9 @@ class ProfilesViewController: UIViewController {
         view.backgroundColor = .white
         
         // config tableview
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 40
+        
         self.tableView.register(HeaderViewCell.self, forCellReuseIdentifier: cellIdentifiers.HeaderViewCell.rawValue)
         self.tableView.register(ImageViewCell.self, forCellReuseIdentifier: cellIdentifiers.ImageViewCell.rawValue)
         self.tableView.register(TextCell.self, forCellReuseIdentifier: cellIdentifiers.TextCell.rawValue)
@@ -60,5 +63,9 @@ extension ProfilesViewController { // delegation
     }
 }
 
-
+public enum cellIdentifiers: String {
+    case HeaderViewCell
+    case ImageViewCell
+    case TextCell
+}
 

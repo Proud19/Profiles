@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeaderViewCell: UITableViewCell {
+class HeaderViewCell: TextCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -18,17 +18,8 @@ class HeaderViewCell: UITableViewCell {
         super.init(coder: aDecoder)
         self.commonInit()
     }
-    
-    func commonInit() {
-        
-     
-       
-
-    }
-}
-
-extension HeaderViewCell {
-    func configure(name: String) {
-        self.textLabel?.text = name
+    override func commonInit() {
+        super.commonInit()
+        self.titleLabel.font = .systemFont(ofSize: 25, weight: .bold)
     }
 }
