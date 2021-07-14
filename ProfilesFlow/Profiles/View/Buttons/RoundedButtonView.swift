@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RoundedtButtonView: UIButton {
+class RoundedButtonView: UIButton {
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -35,7 +35,7 @@ class RoundedtButtonView: UIButton {
     
 }
 
-extension RoundedtButtonView {
+extension RoundedButtonView {
     
     func configure(title: String) {
         self.setTitle(title, for: .normal)

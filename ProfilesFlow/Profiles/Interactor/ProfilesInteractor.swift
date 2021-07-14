@@ -23,14 +23,7 @@ class ProfilesInteractor: ProfilesInteractorType {
             let tempConfigOrder = try JSONSerialization.jsonObject(with: configData, options: JSONSerialization.ReadingOptions()) as! [String: [String]]
              
             for user in allUsers["users"]! {
-                let id = String(format: "%@", user["id"] as! CVarArg)
-                let name = user["name"] as! String
-                let gender = user["gender"] as! String
-                let photo = user["photo"] as! String?
-                let about = user["about"] as! String?
-                let school = user["school"] as! String?
-                let hobbies = user["hobbies"] as! [String]?
-                self._usersArray.append(User(id: id, name: name, gender: gender, about: about, photo: photo, school: school, hobbies: hobbies))
+                self._usersArray.append(User(json: user as! [String : Any])!)
             }
             self._configOrder = tempConfigOrder["profile"]!
             print("Successfully initilized interactor...\nWe have \(self._usersArray.count) users in the system.")

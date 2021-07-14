@@ -19,6 +19,12 @@
 		FF2EEC212697ABB100F5A44B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEC202697ABB100F5A44B /* User.swift */; };
 		FF2EEC232698A19E00F5A44B /* ProfilesInteractorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEC222698A19E00F5A44B /* ProfilesInteractorType.swift */; };
 		FF2EEC272698A2D900F5A44B /* ProfilesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEC262698A2D900F5A44B /* ProfilesInteractor.swift */; };
+		FF2EEC2D269C96D200F5A44B /* HeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEC2C269C96D200F5A44B /* HeaderViewCell.swift */; };
+		FF2EEC2F269C975000F5A44B /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEC2E269C975000F5A44B /* ImageViewCell.swift */; };
+		FF2EEC31269C9AED00F5A44B /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEC30269C9AEC00F5A44B /* TextCell.swift */; };
+		FF2EEC33269C9C1400F5A44B /* ProfilesPresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEC32269C9C1400F5A44B /* ProfilesPresenterType.swift */; };
+		FF2EEC35269C9C8800F5A44B /* ProfilesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEC34269C9C8800F5A44B /* ProfilesPresenter.swift */; };
+		FF2EEC3B269E1E6F00F5A44B /* RoundedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEC3A269E1E6F00F5A44B /* RoundedButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +42,12 @@
 		FF2EEC202697ABB100F5A44B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FF2EEC222698A19E00F5A44B /* ProfilesInteractorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesInteractorType.swift; sourceTree = "<group>"; };
 		FF2EEC262698A2D900F5A44B /* ProfilesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesInteractor.swift; sourceTree = "<group>"; };
+		FF2EEC2C269C96D200F5A44B /* HeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewCell.swift; sourceTree = "<group>"; };
+		FF2EEC2E269C975000F5A44B /* ImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCell.swift; sourceTree = "<group>"; };
+		FF2EEC30269C9AEC00F5A44B /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
+		FF2EEC32269C9C1400F5A44B /* ProfilesPresenterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesPresenterType.swift; sourceTree = "<group>"; };
+		FF2EEC34269C9C8800F5A44B /* ProfilesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesPresenter.swift; sourceTree = "<group>"; };
+		FF2EEC3A269E1E6F00F5A44B /* RoundedButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +125,8 @@
 		FF2EEC1226978EDE00F5A44B /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				FF2EEC32269C9C1400F5A44B /* ProfilesPresenterType.swift */,
+				FF2EEC34269C9C8800F5A44B /* ProfilesPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -120,7 +134,9 @@
 		FF2EEC1326978EE900F5A44B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FF2EEC1E269798A200F5A44B /* ProfilesViewController.swift */,
+				FF2EEC3D269F576700F5A44B /* Buttons */,
+				FF2EEC29269C959A00F5A44B /* Cells */,
+				FF2EEC3C269F575800F5A44B /* VC */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -131,6 +147,32 @@
 				FF2EEC1A2697978900F5A44B /* ProfilesWireframe.swift */,
 			);
 			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		FF2EEC29269C959A00F5A44B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FF2EEC2E269C975000F5A44B /* ImageViewCell.swift */,
+				FF2EEC30269C9AEC00F5A44B /* TextCell.swift */,
+				FF2EEC2C269C96D200F5A44B /* HeaderViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FF2EEC3C269F575800F5A44B /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				FF2EEC1E269798A200F5A44B /* ProfilesViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		FF2EEC3D269F576700F5A44B /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				FF2EEC3A269E1E6F00F5A44B /* RoundedButtonView.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,13 +247,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF2EEC31269C9AED00F5A44B /* TextCell.swift in Sources */,
 				FF2EEC232698A19E00F5A44B /* ProfilesInteractorType.swift in Sources */,
+				FF2EEC2F269C975000F5A44B /* ImageViewCell.swift in Sources */,
 				FF2EEC1B2697978900F5A44B /* ProfilesWireframe.swift in Sources */,
 				FF2EEBF426978D2D00F5A44B /* AppDelegate.swift in Sources */,
 				FF2EEC1F269798A200F5A44B /* ProfilesViewController.swift in Sources */,
+				FF2EEC35269C9C8800F5A44B /* ProfilesPresenter.swift in Sources */,
+				FF2EEC33269C9C1400F5A44B /* ProfilesPresenterType.swift in Sources */,
 				FF2EEC212697ABB100F5A44B /* User.swift in Sources */,
+				FF2EEC3B269E1E6F00F5A44B /* RoundedButtonView.swift in Sources */,
 				FF2EEBF626978D2D00F5A44B /* SceneDelegate.swift in Sources */,
 				FF2EEC272698A2D900F5A44B /* ProfilesInteractor.swift in Sources */,
+				FF2EEC2D269C96D200F5A44B /* HeaderViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

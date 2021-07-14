@@ -10,7 +10,7 @@ import UIKit
 class ProfilesViewController: UIViewController {
     fileprivate var presenter: ProfilesPresenter
     var tableView = UITableView()
-    var buttonView = RoundedtButtonView()
+    var buttonView = RoundedButtonView()
     
     
     init(presenter: ProfilesPresenter) {

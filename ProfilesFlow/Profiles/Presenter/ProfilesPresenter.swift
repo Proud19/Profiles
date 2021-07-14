@@ -28,13 +28,13 @@ class ProfilesPresenter: NSObject {
         return interactor.usersArray[userIndex]
     }
     fileprivate var profileSections: [ProfileSections] {
-            var tempField: [ProfileSections] = []
-            for field in user.displayableFields {
-                if profileSectionsDict.keys.contains(field) {
-                    tempField.append(profileSectionsDict[field]!)
-                }
+        var tempField: [ProfileSections] = []
+        for field in interactor.configOrder {
+            if user.userAttributes[field] != nil {
+                tempField.append(profileSectionsDict[field]!)
             }
-            return tempField
+        }
+        return tempField
     }
 
 
@@ -75,12 +75,12 @@ extension ProfilesPresenter: UITableViewDataSource {
         case .name:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifiers.HeaderViewCell.rawValue) as! HeaderViewCell
             cell.selectionStyle = .none
-            cell.configure(title: user.name)
+            cell.configure(title: user.userAttributes["name"] as! String)
             return cell
         case .photo:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifiers.ImageViewCell.rawValue) as! ImageViewCell
             cell.selectionStyle = .none
-            cell.configure(imageName: user.id)
+            cell.configure(imageName: String(user.userAttributes["id"] as! Int))
             return cell
             
         case .gender(let row):
@@ -93,7 +93,7 @@ extension ProfilesPresenter: UITableViewDataSource {
             case .description:
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifiers.TextCell.rawValue) as! TextCell
                 cell.selectionStyle = .none
-                cell.configure(title: user.gender)
+                cell.configure(title: user.userAttributes["gender"] as! String)
                 return cell
             }
         case .about(let row):
@@ -106,7 +106,7 @@ extension ProfilesPresenter: UITableViewDataSource {
             case .description:
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifiers.TextCell.rawValue) as! TextCell
                 cell.selectionStyle = .none
-                cell.configure(title: user.about ?? "Nil")
+                cell.configure(title: user.userAttributes["about"] as! String)
                 return cell
             }
         case .school(let row):
@@ -119,7 +119,7 @@ extension ProfilesPresenter: UITableViewDataSource {
             case .description:
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifiers.TextCell.rawValue) as! TextCell
                 cell.selectionStyle = .none
-                cell.configure(title: user.school ?? "Nil")
+                cell.configure(title: user.userAttributes["school"] as! String)
                 return cell
             }
         case .hobbies(let row):
@@ -132,7 +132,7 @@ extension ProfilesPresenter: UITableViewDataSource {
             case .description:
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifiers.TextCell.rawValue) as! TextCell
                 cell.selectionStyle = .none
-                cell.configure(title: (user.hobbies?.joined(separator: ", ")) ?? "Nil")
+                cell.configure(title: ((user.userAttributes["hobbies"] as! [String]).joined(separator: ", ")))
                 return cell
             }
         }
@@ -149,10 +149,11 @@ extension ProfilesPresenter: UITableViewDelegate {
 extension ProfilesPresenter {
     @objc func handleNextButtonPressed() {
         self.userIndex += 1
-        self.vc?.tableView.reloadData()
-        if self.userIndex == self.interactor.usersArray.count-1 {
-            self.vc?.buttonView.isHidden = true
+        if self.userIndex == self.interactor.usersArray.count {
+            self.userIndex = 0
+            
         }
+        self.vc?.tableView.reloadData()
     }
 
 }
