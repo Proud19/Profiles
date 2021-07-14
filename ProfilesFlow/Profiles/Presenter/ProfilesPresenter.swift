@@ -36,20 +36,17 @@ class ProfilesPresenter: NSObject {
             }
             return tempField
     }
+}
 
-
-
-    
+extension ProfilesPresenter: ProfilesPresenterType {
     func handleViewDidLoad() {
         self.vc?.set(dataSource: self)
         self.vc?.set(delegate: self)
-        
-        self.vc?.buttonView.addTarget(self, action: #selector(self.handleNextButtonPressed), for: .touchUpInside)
+        self.vc?.set(target: self, selector: #selector(self.handleNextButtonPressed))
     }
 }
 
 extension ProfilesPresenter: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.profileSections.count
     }
@@ -57,20 +54,18 @@ extension ProfilesPresenter: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let profileSection = self.profileSections[section]
         switch profileSection {
-        case .name:                return 1
-        case .photo:               return 1
-        case .gender(let rows):      return rows.count
-        case .about(let rows):           return rows.count
-        case .school(let rows):                  return rows.count
-        case .hobbies(let rows):              return rows.count
+        case .name:                 return 1
+        case .photo:                return 1
+        case .gender(let rows):     return rows.count
+        case .about(let rows):      return rows.count
+        case .school(let rows):     return rows.count
+        case .hobbies(let rows):    return rows.count
         }
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let profileSection = self.profileSections[indexPath.section]
-
         switch profileSection {
         case .name:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifiers.HeaderViewCell.rawValue) as! HeaderViewCell
@@ -143,25 +138,17 @@ extension ProfilesPresenter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
-
 }
 
 extension ProfilesPresenter {
     @objc func handleNextButtonPressed() {
         self.userIndex += 1
-        self.vc?.tableView.reloadData()
-        if self.userIndex == self.interactor.usersArray.count-1 {
-            self.vc?.buttonView.isHidden = true
+        self.vc?.reloadData()
+        if self.userIndex == self.interactor.usersArray.count - 1 {
+            self.vc?.configure(shouldHideButton: true)
         }
     }
 
-}
-
-
-public enum ProfileProperties: String {
-    case HeaderViewCell
-    case ImageViewCell
-    case TextCell
 }
 
 public enum ProfileSections {

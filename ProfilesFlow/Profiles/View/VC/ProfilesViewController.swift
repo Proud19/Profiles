@@ -8,12 +8,11 @@
 import UIKit
 
 class ProfilesViewController: UIViewController {
-    fileprivate var presenter: ProfilesPresenter
-    var tableView = UITableView()
-    var buttonView = RoundedtButtonView()
+    fileprivate var presenter: ProfilesPresenterType
+    fileprivate var tableView = UITableView()
+    fileprivate var buttonView = RoundedtButtonView()
     
-    
-    init(presenter: ProfilesPresenter) {
+    init(presenter: ProfilesPresenterType) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -21,7 +20,6 @@ class ProfilesViewController: UIViewController {
     required init?(coder: NSCoder) {
         return nil
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,28 +36,40 @@ class ProfilesViewController: UIViewController {
         
         //config button
         self.buttonView.configure(title: "Next")
-        self.buttonView.configure(percentageDiameter: 20)
-        self.buttonView.configure(percentagePosX: 85, percentagePosY: 85)
+        self.buttonView.layer.cornerRadius = 32.0
         
         // add subviews
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
+        self.buttonView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(self.tableView)
         self.view.addSubview(self.buttonView)
-        self.view.insertSubview(self.tableView, belowSubview: self.buttonView)
-
-
+        
         // create constraints
-        let views = ["table" : self.tableView]
+        let views = ["table" : self.tableView,
+                     "button" : self.buttonView]
         let tableViewConstraintsH = NSLayoutConstraint.constraints(withVisualFormat: "H:|[table]|", options: [], metrics: nil, views: views)
         let tableViewConstraintsV = NSLayoutConstraint.constraints(withVisualFormat: "V:|[table]|", options: [], metrics: nil, views: views)
+        let buttonConstraintsH = [NSLayoutConstraint(item: self.buttonView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: -16.0),
+                                  NSLayoutConstraint(item: self.buttonView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 64.0)]
+        let buttonConstraintsV = [NSLayoutConstraint(item: self.buttonView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: -16.0),
+                                  NSLayoutConstraint(item: self.buttonView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 64.0)]
         
-
-
         // add constraints
         self.view.addConstraints(tableViewConstraintsH + tableViewConstraintsV)
+        self.view.addConstraints(buttonConstraintsH + buttonConstraintsV)
 
         // hand off to presenter
         self.presenter.handleViewDidLoad()
-        
+    }
+}
+
+extension ProfilesViewController { // appearance
+    func reloadData() {
+        self.tableView.reloadData()
+    }
+    
+    func configure(shouldHideButton: Bool) {
+        self.buttonView.isHidden = shouldHideButton
     }
 }
 
@@ -70,6 +80,10 @@ extension ProfilesViewController { // delegation
     
     func set(delegate: UITableViewDelegate) {
         self.tableView.delegate = delegate
+    }
+    
+    func set(target: Any?, selector: Selector) {
+        self.buttonView.addTarget(target, action: selector, for: .touchUpInside)
     }
 }
 

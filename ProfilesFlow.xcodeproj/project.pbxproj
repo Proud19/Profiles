@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		879E6675269F719900376109 /* ProfilesPresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E6673269F719900376109 /* ProfilesPresenterType.swift */; };
+		879E6676269F719900376109 /* ProfilesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E6674269F719900376109 /* ProfilesPresenter.swift */; };
+		879E667A269F71D000376109 /* ProfilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E6679269F71D000376109 /* ProfilesViewController.swift */; };
+		879E667E269F720200376109 /* RoundedButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E667D269F720200376109 /* RoundedButtonView.swift */; };
+		879E6683269F721300376109 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E6680269F721300376109 /* TextCell.swift */; };
+		879E6684269F721300376109 /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E6681269F721300376109 /* ImageViewCell.swift */; };
+		879E6685269F721300376109 /* HeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879E6682269F721300376109 /* HeaderViewCell.swift */; };
 		FF2EEBF426978D2D00F5A44B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEBF326978D2D00F5A44B /* AppDelegate.swift */; };
 		FF2EEBF626978D2D00F5A44B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEBF526978D2D00F5A44B /* SceneDelegate.swift */; };
 		FF2EEBFB26978D2D00F5A44B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2EEBF926978D2D00F5A44B /* Main.storyboard */; };
@@ -15,13 +22,19 @@
 		FF2EEC0A26978D6500F5A44B /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = FF2EEC0926978D6500F5A44B /* config.json */; };
 		FF2EEC0E26978DE200F5A44B /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = FF2EEC0D26978DE200F5A44B /* users.json */; };
 		FF2EEC1B2697978900F5A44B /* ProfilesWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEC1A2697978900F5A44B /* ProfilesWireframe.swift */; };
-		FF2EEC1F269798A200F5A44B /* ProfilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEC1E269798A200F5A44B /* ProfilesViewController.swift */; };
 		FF2EEC212697ABB100F5A44B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEC202697ABB100F5A44B /* User.swift */; };
 		FF2EEC232698A19E00F5A44B /* ProfilesInteractorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEC222698A19E00F5A44B /* ProfilesInteractorType.swift */; };
 		FF2EEC272698A2D900F5A44B /* ProfilesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEC262698A2D900F5A44B /* ProfilesInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		879E6673269F719900376109 /* ProfilesPresenterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilesPresenterType.swift; sourceTree = "<group>"; };
+		879E6674269F719900376109 /* ProfilesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilesPresenter.swift; sourceTree = "<group>"; };
+		879E6679269F71D000376109 /* ProfilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilesViewController.swift; path = VC/ProfilesViewController.swift; sourceTree = "<group>"; };
+		879E667D269F720200376109 /* RoundedButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedButtonView.swift; path = Buttons/RoundedButtonView.swift; sourceTree = "<group>"; };
+		879E6680269F721300376109 /* TextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextCell.swift; path = Cells/TextCell.swift; sourceTree = "<group>"; };
+		879E6681269F721300376109 /* ImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewCell.swift; path = Cells/ImageViewCell.swift; sourceTree = "<group>"; };
+		879E6682269F721300376109 /* HeaderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderViewCell.swift; path = Cells/HeaderViewCell.swift; sourceTree = "<group>"; };
 		FF2EEBF026978D2D00F5A44B /* ProfilesFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfilesFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2EEBF326978D2D00F5A44B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF2EEBF526978D2D00F5A44B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,7 +45,6 @@
 		FF2EEC0926978D6500F5A44B /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		FF2EEC0D26978DE200F5A44B /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		FF2EEC1A2697978900F5A44B /* ProfilesWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesWireframe.swift; sourceTree = "<group>"; };
-		FF2EEC1E269798A200F5A44B /* ProfilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesViewController.swift; sourceTree = "<group>"; };
 		FF2EEC202697ABB100F5A44B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FF2EEC222698A19E00F5A44B /* ProfilesInteractorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesInteractorType.swift; sourceTree = "<group>"; };
 		FF2EEC262698A2D900F5A44B /* ProfilesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesInteractor.swift; sourceTree = "<group>"; };
@@ -113,6 +125,8 @@
 		FF2EEC1226978EDE00F5A44B /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				879E6674269F719900376109 /* ProfilesPresenter.swift */,
+				879E6673269F719900376109 /* ProfilesPresenterType.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -120,7 +134,11 @@
 		FF2EEC1326978EE900F5A44B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FF2EEC1E269798A200F5A44B /* ProfilesViewController.swift */,
+				879E6682269F721300376109 /* HeaderViewCell.swift */,
+				879E6681269F721300376109 /* ImageViewCell.swift */,
+				879E6680269F721300376109 /* TextCell.swift */,
+				879E667D269F720200376109 /* RoundedButtonView.swift */,
+				879E6679269F71D000376109 /* ProfilesViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,11 +225,17 @@
 			files = (
 				FF2EEC232698A19E00F5A44B /* ProfilesInteractorType.swift in Sources */,
 				FF2EEC1B2697978900F5A44B /* ProfilesWireframe.swift in Sources */,
+				879E667A269F71D000376109 /* ProfilesViewController.swift in Sources */,
 				FF2EEBF426978D2D00F5A44B /* AppDelegate.swift in Sources */,
-				FF2EEC1F269798A200F5A44B /* ProfilesViewController.swift in Sources */,
+				879E6684269F721300376109 /* ImageViewCell.swift in Sources */,
+				879E6676269F719900376109 /* ProfilesPresenter.swift in Sources */,
+				879E6685269F721300376109 /* HeaderViewCell.swift in Sources */,
+				879E6675269F719900376109 /* ProfilesPresenterType.swift in Sources */,
 				FF2EEC212697ABB100F5A44B /* User.swift in Sources */,
 				FF2EEBF626978D2D00F5A44B /* SceneDelegate.swift in Sources */,
+				879E667E269F720200376109 /* RoundedButtonView.swift in Sources */,
 				FF2EEC272698A2D900F5A44B /* ProfilesInteractor.swift in Sources */,
+				879E6683269F721300376109 /* TextCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +384,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ProfilesFlow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,6 +403,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ProfilesFlow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
