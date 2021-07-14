@@ -20,16 +20,18 @@ class ImageViewCell: UITableViewCell {
 }
 
 extension ImageViewCell {
-    func configure(imageName: String) {
+    func configure(imageName: String?) {
         
         // more dynamic cgRect values to be added
-        let imageView = UIImageView(frame: CGRect(x: 110, y: 0, width: 200, height: 250))
-        imageView.image = UIImage(named: imageName)!
+        let imageWidth = UIScreen.main.bounds.width/2
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageWidth * 1.3))
+        imageView.center.x =  UIScreen.main.bounds.width/2
+        imageView.image = UIImage(named: imageName!)
         self.contentView.addSubview(imageView)
         
         let views = ["imageView" : imageView]
         let imageViewConstraintsH = NSLayoutConstraint.constraints(withVisualFormat: "H:|[imageView]|", options: [], metrics: nil, views: views)
-        let imageViewConstraintsV = NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageView]|", options: [], metrics: nil, views: views)
+        let imageViewConstraintsV = NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[imageView]-10-|", options: [], metrics: nil, views: views)
         
 
         // add constraints

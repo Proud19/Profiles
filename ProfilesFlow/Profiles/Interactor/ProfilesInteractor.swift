@@ -23,7 +23,7 @@ class ProfilesInteractor: ProfilesInteractorType {
             let tempConfigOrder = try JSONSerialization.jsonObject(with: configData, options: JSONSerialization.ReadingOptions()) as! [String: [String]]
              
             for user in allUsers["users"]! {
-                let id = String(describing: user["id"])
+                let id = String(format: "%@", user["id"] as! CVarArg)
                 let name = user["name"] as! String
                 let gender = user["gender"] as! String
                 let photo = user["photo"] as! String?
